@@ -1,25 +1,26 @@
-﻿namespace progreso3mj
+﻿using Microsoft.Maui.Controls;
+using progreso3mj.Services;
+using progreso3mj.ViewModels;
+
+namespace progreso3mj.Views
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private readonly MealSearchViewModel _viewModel;
 
         public MainPage()
         {
             InitializeComponent();
+
+            var mealService = new MealService();
+            var mealDatabase = new MealDatabase(FileAccessHelper.GetLocalFilePath("meals.db3"));
+            _viewModel = new MealSearchViewModel(mealService, mealDatabase);
+            BindingContext = _viewModel;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnHistoryButtonClicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            await Navigation.PushAsync(new progreso3mj.HistoryPage());
         }
     }
-
 }

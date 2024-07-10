@@ -1,0 +1,26 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:YourNamespace"
+             x:Class="YourNamespace.HistoryPage">
+
+    <ContentPage.BindingContext>
+        <vm:MealSearchViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="10">
+        <Button Text="Load History" Command="{Binding LoadHistoryCommand}" />
+
+        <ListView ItemsSource="{Binding SearchHistories}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding SearchTerm}" FontSize="20" />
+                            <Label Text="{Binding SearchDate}" FontSize="16" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
