@@ -1,10 +1,7 @@
-﻿using progreso3mj.Models;
-using SQLite;
-using System;
+﻿using SQLite;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using progreso3mj.Models;
 
 namespace progreso3mj.Services
 {

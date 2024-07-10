@@ -20,7 +20,7 @@ namespace progreso3mj.Views
 
         private async void OnHistoryButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new progreso3mj.HistoryPage());
+            await Navigation.PushAsync(new HistoryPage());
         }
     }
 }

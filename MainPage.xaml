@@ -1,11 +1,7 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:progreso3mj.ViewModels"
-             x:Class="progreso3mj.Views.MainPage">
-
-    <ContentPage.BindingContext>
-        <vm:MealSearchViewModel />
-    </ContentPage.BindingContext>
+             x:Class="progreso3mj.Views.MainPage"
+             xmlns:model="clr-namespace:progreso3mj.Models">
 
     <StackLayout Padding="10">
         <Entry Text="{Binding SearchTerm}" Placeholder="Enter meal name" />
@@ -13,13 +9,28 @@
 
         <ListView ItemsSource="{Binding Meals}">
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="model:MealMJ">
                     <ViewCell>
                         <StackLayout>
                             <Label Text="{Binding StrMeal}" FontSize="20" />
                             <Label Text="{Binding StrCategory}" FontSize="16" />
+                            <Label Text="{Binding StrArea}" FontSize="16" />
                             <Label Text="{Binding StrInstructions}" FontSize="14" />
                             <Image Source="{Binding StrMealThumb}" HeightRequest="200" WidthRequest="200" />
+                            <Label Text="{Binding StrTags}" FontSize="14" />
+                            <Label Text="{Binding StrYoutube}" FontSize="14" />
+                            <Label Text="Ingredients:" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="{Binding StrIngredient1}" FontSize="14" />
+                            <Label Text="{Binding StrIngredient2}" FontSize="14" />
+                            <Label Text="{Binding StrIngredient3}" FontSize="14" />
+                            <Label Text="{Binding StrIngredient4}" FontSize="14" />
+                            <Label Text="{Binding StrIngredient5}" FontSize="14" />
+                            <Label Text="{Binding StrIngredient6}" FontSize="14" />
+                            <Label Text="{Binding StrIngredient7}" FontSize="14" />
+                            <Label Text="{Binding StrIngredient8}" FontSize="14" />
+                            <Label Text="{Binding StrIngredient9}" FontSize="14" />
+                            <Label Text="{Binding StrIngredient10}" FontSize="14" />
+                            <!-- Add more ingredients as necessary -->
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
