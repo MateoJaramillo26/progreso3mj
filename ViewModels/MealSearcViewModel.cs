@@ -11,7 +11,7 @@ namespace progreso3mj.ViewModels
     public partial class MealSearchViewModel : ObservableObject
     {
         private readonly MealService _mealService;
-        private readonly MealDatabase? _mealDatabase; 
+        private readonly MealDatabase? _mealDatabase;
 
         public ObservableCollection<MealMJ> Meals { get; } = new ObservableCollection<MealMJ>();
         public ObservableCollection<SearchHistoryMJ> SearchHistories { get; } = new ObservableCollection<SearchHistoryMJ>();
@@ -31,7 +31,6 @@ namespace progreso3mj.ViewModels
             SearchCommand = new AsyncRelayCommand(SearchMealsAsync);
             LoadHistoryCommand = new AsyncRelayCommand(LoadHistoryAsync);
         }
-
 
         public IAsyncRelayCommand SearchCommand { get; }
         public IAsyncRelayCommand LoadHistoryCommand { get; }
